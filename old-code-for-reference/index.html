@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+   
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   
+    <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Document</title>
+
+</head>
+<body>
+
+<div id="Beginning Headers">
+
+<h1> Grade Calculator</h1>
+
+<p> This grade calculator emulates the PowerSchool grading system, taking into account weighted and empty categories and assignments. In addition, this will show what grades are needed in each category to reach a certain grade, set by the user. </p>
+
+<h1> Calculator </h1>
+</div>
+
+<div id="Tests Category">
+<h2> Tests </h2>
+<p class="input">
+<label for="weightT">Weight of Tests (Put in number before percent symbol, EX: 40% is 40.)</label>    
+<input type="number" id="weightT" min="0" max="100">
+<br>
+<label for="pointsearnedT">Total Points Earned from Tests</label>
+<input type="number" id="pointsearnedT" placeholder="Put points earned in here!">
+<br>
+<label for="pointspossibleT">Total Points Possible from Tests</label>
+<input type="number" id="pointspossibleT" placeholder="Put points possible in here!">
+<br>
+<button onclick="calculateT()">Calculate this category!</button>
+<br><br>
+</p>
+<p id="resultsT">Results will show here upon clicking the button!</p>
+<script>
+function calculateT(){  
+    WeightofTests = document.getElementById("weightT").value / 100
+    Percent4Tests = document.getElementById("pointsearnedT").value / document.getElementById("pointspossibleT").value
+    TestsWorth = (Percent4Tests * 100) * (WeightofTests)
+
+    document.getElementById("resultsT").textContent =
+    "Your test average is " + (Percent4Tests * 100).toFixed(2) + 
+    "%. This is worth " + (TestsWorth).toFixed(2) + 
+    "% of your current final grade. You have lost " + ((WeightofTests*100) - ((Percent4Tests * 100) * (WeightofTests))).toFixed(2) +
+    "% of your grade from this category."
+}
+</script>
+</div>
+
+<div id="Homework Category">
+<h2> Homework </h2>
+<p class="input">
+<label for="weightH">Weight of Homework (Put in number before percent symbol, EX: 40% is 40.)</label>    
+<input type="number" id="weightH" min="0" max="100">
+<br>
+<label for="pointsearnedH">Total Points Earned from Homework</label>
+<input type="number" id="pointsearnedH" placeholder="Put points earned in here!">
+<br>
+<label for="pointspossibleH">Total Points Possible from Homework</label>
+<input type="number" id="pointspossibleH" placeholder="Put points possible in here!">
+<br>
+<button onclick="calculateH()">Calculate this category!</button>
+<br><br>
+</p>
+<p id="resultsH">Results will show here upon clicking the button!</p>
+<script>
+function calculateH(){  
+    WeightofHW = document.getElementById("weightH").value / 100
+    Percent4HW = document.getElementById("pointsearnedH").value / document.getElementById("pointspossibleH").value
+    HWWorth = (Percent4HW * 100) * (WeightofHW)
+
+    document.getElementById("resultsH").textContent =
+    "Your homework average is " + (Percent4HW * 100).toFixed(2) + 
+    "%. This is worth " + (HWWorth).toFixed(2) + 
+    "% of your current final grade. You have lost " + ((WeightofHW*100) - ((Percent4HW * 100) * (WeightofHW))).toFixed(2) +
+    "% of your grade from this category."
+}
+</script>
+</div>
+
+<div id="Other/Misc Category">
+<h2> Other/Miscellaneous </h2>
+<p class="input">
+<label for="weightO">Weight of Other/Miscellaneous (Put in number before percent symbol, EX: 40% is 40.)</label>    
+<input type="number" id="weightO" min="0" max="100">
+<br>
+<label for="pointsearnedO">Total Points Earned from Other/Miscellaneous</label>
+<input type="number" id="pointsearnedO" placeholder="Put points earned in here!">
+<br>
+<label for="pointspossibleO">Total Points Possible from Other/Miscellaneous</label>
+<input type="number" id="pointspossibleO" placeholder="Put points possible in here!">
+<br>
+<button onclick="calculateO()">Calculate this category!</button>
+<br><br>
+</p>
+<p id="resultsO">Results will show here upon clicking the button!</p>
+<script>
+function calculateO(){  
+    WeightofO = document.getElementById("weightO").value / 100
+    Percent4O = document.getElementById("pointsearnedO").value / document.getElementById("pointspossibleO").value
+    OWorth = (Percent4O * 100) * (WeightofO)
+
+    document.getElementById("resultsO").textContent =
+    "Your other/miscellaneous average is " + (Percent4O * 100).toFixed(2) + 
+    "%. This is worth " + (OWorth).toFixed(2) + 
+    "% of your current final grade. You have lost " + ((WeightofO*100) - ((Percent4O * 100) * (WeightofO))).toFixed(2) +
+    "% of your grade from this category."
+}
+</script>
+</div>
+
+<div id="Final Grade Calculator">
+<br><br>
+<button onclick="calculateFinal()">Finish your calculator! This will only work after finishing all other categories.</button>
+<p id="resultsFinal">Results will show here after finishing each category and clicking the button!</p>
+<script>
+function calculateFinal(){
+    if (OWorth !== undefined && HWWorth !== undefined && TestsWorth !== undefined){
+        document.getElementById("resultsFinal").textContent =
+        "Your final grade is currently " + (OWorth + HWWorth + TestsWorth).toFixed(2) + "%."
+    }
+}
+</script>
+</div>
+
+<div id="Grade Needed Calc">
+
+<h2> Grade Needed Calculator </h2>
+
+<div id="Select FA Category">
+<p><label for="Category of Final Assignment">Which category is the next or final assignment in?</label></p>
+<select id="FACat">
+    <option value="Tests">Tests</option>
+    <option value="HW">Homework</option>
+    <option value="O">Others/Miscellaneous</option>
+</select>
+
+</div>
+<!-- ( ( Final Grade Wanted - (Sum of Other Weights) ) / Test Weight) * (Total Test Points Avaible Currently + Next Test Total Points) ) - Test Points Earned	-->
+
+<div id="InputsforFA">
+
+<p>
+<br>
+
+<label for="pointspossibleGN">Total Points Possible from this Assignment</label>
+<input type="number" id="pointspossibleGN" placeholder="Put points possible in here!">
+<script>
+    pointspossibleGN = document.getElementById("pointspossibleGN").value
+</script>
+<br>
+
+<label for="FGWanted">Grade Wanted after this Assignment</label>
+<input type="number" id="FGWanted" placeholder="Put dream grade in here!">
+<script>
+    FGWanted = document.getElementById("FGWanted").value
+</script>
+<br>
+
+</p>
+
+</div>
+
+<div id="Formula Creation">
+<button onclick="calculateGN()">Calculate the grade you need on your next or final assignment to get your goal grade! This will only work after finishing all other categories.</button>
+<p id="resultsGN">Results will show here after finishing each category and clicking the button!</p>
+<script>
+function calculateGN() {
+    
+
+    FACat = (document.getElementById("FACat")).value;
+  if (FACat === "Tests"){
+    sumOfOtherParts = (HWWorth + OWorth)
+    FAWeight = WeightofTests
+    FACategorysPoints = Number(document.getElementById("pointspossibleT").value)
+    FACategorysPointsE = Number(document.getElementById("pointsearnedT").value)
+  } else if (FACat === "HW"){
+    sumOfOtherParts = (TestsWorth + OWorth)
+    FAWeight = WeightofHW
+    FACategorysPoints = Number(document.getElementById("pointspossibleH").value)
+    FACategorysPointsE = Number(document.getElementById("pointsearnedH").value)
+  }
+  else if (FACat === "O"){
+    sumOfOtherParts = (TestsWorth + HWWorth)
+    FAWeight = WeightofO
+    FACategorysPoints = Number(document.getElementById("pointspossibleO").value)
+    FACategorysPointsE = Number(document.getElementById("pointsearnedO").value)
+  } else {document.getElementById("FA Output").textContent =
+        "Make sure to select a category for your final assignment!"}
+    
+    
+    
+    if (FACat){
+        document.getElementById("resultsGN").textContent =
+        "You need a " + ((((Number(document.getElementById("FGWanted").value) - sumOfOtherParts) / FAWeight) / 100 * (FACategorysPoints + Number(document.getElementById("pointspossibleGN").value)) - FACategorysPointsE) / Number(document.getElementById("pointspossibleGN").value) * 100).toFixed(2) + "% on this assignment to achieve your goal grade. Better start studying!"
+    }
+}
+</script>
+</div>
+
+</div>
+
+</body>
+</html>

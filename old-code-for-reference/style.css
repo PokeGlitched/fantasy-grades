@@ -1,0 +1,41 @@
+html{
+  background-color: #fcf9ed;
+}
+
+h1{ 
+  font-family: "Karla", sans-serif;
+  font-weight: 800;
+  color: #545cf0ff
+}
+
+h2{ 
+  font-family: "Karla", sans-serif;
+  font-weight: 600;
+  color: #2c2448ff
+}
+
+p{ 
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+  color: #2f4156ff
+}
+
+.input{ 
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+  color: #2f4156ff
+}
+
+.select{ 
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+  color: #2f4156ff
+}
+
+button{
+  font-family: "Karla", sans-serif;
+  font-weight: 400;
+  background-color: #48a9a6ff;
+  border-color: #9dd5d3ff;
+}
+
