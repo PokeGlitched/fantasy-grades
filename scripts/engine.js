@@ -5,3 +5,12 @@ function calculateCategory(earned, possible){
         return earned/possible * 100    
     }
 }
+
+let categoryPercent = calculateCategory(40, 50)
+console.log(categoryPercent)
+
+if (typeof categoryPercent === "string") {
+    
+} else if (typeof categoryPercent === "number") {
+
+}
