@@ -25,8 +25,7 @@ let categories = [
     category3
 ]
 
-let categoryResults = [
-]
+
 
 function calculateCategory(category){  
     if (category.possible === 0) {
@@ -36,7 +35,10 @@ function calculateCategory(category){
     }
 }
 
-for (let i = 0; i < categories.length; i++) {
+function catProcessor(categories) {for (let i = 0; i < categories.length; i++) {
+    
+    let categoryResults = []
+
     let currentCat = categories[i]
     let categoryPercent = calculateCategory(currentCat)
     
@@ -49,5 +51,8 @@ for (let i = 0; i < categories.length; i++) {
     }
 }
 
-console.log(categoryResults)
+return categoryResults
+}
 
+let results = catProcessor(categories)
+console.log(results)
