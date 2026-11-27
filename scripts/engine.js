@@ -35,9 +35,11 @@ function calculateCategory(category){
     }
 }
 
-function catProcessor(categories) {for (let i = 0; i < categories.length; i++) {
+function catProcessor(categories) {
     
     let categoryResults = []
+    
+    for (let i = 0; i < categories.length; i++) {
 
     let currentCat = categories[i]
     let categoryPercent = calculateCategory(currentCat)
