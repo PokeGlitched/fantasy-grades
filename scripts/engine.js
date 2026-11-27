@@ -1,16 +1,16 @@
 function calculateCategory(earned, possible){  
     if (possible === 0) {
-        return "Category Inactive"
+        return null
     } else {
-        return earned/possible * 100    
+        return Number((earned/possible * 100).toFixed(2))    
     }
 }
 
-let categoryPercent = calculateCategory(40, 50)
+let categoryPercent = calculateCategory(0, 10)
 console.log(categoryPercent)
 
-if (typeof categoryPercent === "string") {
-    
-} else if (typeof categoryPercent === "number") {
-
+if (categoryPercent !== null) {
+    console.log("hi")
+} else {
+    console.log("bye")
 }
