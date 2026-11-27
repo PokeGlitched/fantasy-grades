@@ -25,6 +25,9 @@ let categories = [
     category3
 ]
 
+let categoryResults = [
+]
+
 function calculateCategory(category){  
     if (category.possible === 0) {
         return null
@@ -37,12 +40,14 @@ for (let i = 0; i < categories.length; i++) {
     let currentCat = categories[i]
     let categoryPercent = calculateCategory(currentCat)
     
-    
-
     if (categoryPercent !== null) {
         console.log(`${currentCat.name}: ${categoryPercent}%, Active`)
+        categoryResults.push({name: currentCat.name, value: categoryPercent})
     } else {
         console.log(`${currentCat.name}: Inactive`)
+        categoryResults.push({name: currentCat.name, value: null})
     }
 }
+
+console.log(categoryResults)
 
