@@ -1,12 +1,20 @@
-function calculateCategory(earned, possible){  
-    if (possible === 0) {
+let category = {
+    name: "Tests",
+    earned: 0,
+    possible: 10,
+    weight: 60
+}
+
+function calculateCategory(category){  
+    if (category.possible === 0) {
         return null
     } else {
-        return Number((earned/possible * 100).toFixed(2))    
+        return Number((category.earned / category.possible * 100))    
     }
 }
 
-let categoryPercent = calculateCategory(0, 10)
+let categoryPercent = calculateCategory(category)
+
 console.log(categoryPercent)
 
 if (categoryPercent !== null) {
