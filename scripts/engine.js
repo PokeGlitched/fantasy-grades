@@ -37,12 +37,12 @@ for (let i = 0; i < categories.length; i++) {
     let currentCat = categories[i]
     let categoryPercent = calculateCategory(currentCat)
     
-    console.log(categoryPercent)
+    
 
     if (categoryPercent !== null) {
-        console.log("hi")
+        console.log(`${currentCat.name}: ${categoryPercent}%, Active`)
     } else {
-        console.log("bye")
+        console.log(`${currentCat.name}: Inactive`)
     }
 }
 
